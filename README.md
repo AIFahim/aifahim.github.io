@@ -320,41 +320,6 @@ Mobile responsiveness styles (Lines ~110-180):
 </section>
 ```
 
-## 🤝 Contributing
-
-### Before Contributing
-
-1. **Check existing issues** for duplicates
-2. **Create an issue** describing your proposed change
-3. **Fork the repository** to your account
-4. **Create a feature branch**: `git checkout -b feature/your-feature`
-
-### Making Changes
-
-1. **Follow code style**:
-   - Consistent indentation (2 spaces)
-   - Meaningful variable/class names
-   - Comment complex logic
-
-2. **Test thoroughly**:
-   - Check all responsive breakpoints
-   - Test in multiple browsers
-   - Verify no console errors
-
-3. **Commit guidelines**:
-   ```bash
-   git commit -m "feat: add new feature"
-   git commit -m "fix: resolve responsive issue"
-   git commit -m "docs: update README"
-   ```
-
-### Submitting Pull Request
-
-1. Push to your fork
-2. Create Pull Request with description
-3. Link any related issues
-4. Wait for review and feedback
-
 ## 🔧 Troubleshooting
 
 ### Common Issues
@@ -396,18 +361,11 @@ Mobile responsiveness styles (Lines ~110-180):
    - Use CDN for libraries
    - Enable GZIP compression
 
-## 📞 Contact & Support
-
-For questions or support:
-- Email: asif.iqbal.ece.ruet@gmail.com
-- GitHub Issues: [Create an issue](https://github.com/AIFahim/aifahim.github.io/issues)
-- LinkedIn: [Md. Asif Iqbal Fahim](https://www.linkedin.com/in/asif-iqbal-fahim/)
-
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Last Updated**: December 2024
+**Last Updated**: January 2025
 **Maintained By**: Md. Asif Iqbal Fahim
