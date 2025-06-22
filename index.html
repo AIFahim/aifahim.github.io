@@ -372,6 +372,15 @@
                 overflow: hidden;
             }
             
+            @keyframes drift {
+                from {
+                    background-position: 0 0, 25px 25px, 0 0;
+                }
+                to {
+                    background-position: 80px 80px, 75px 75px, 0 0;
+                }
+            }
+            
             #about::before {
                 content: '';
                 position: absolute;
@@ -387,6 +396,7 @@
                     linear-gradient(to bottom, rgba(37, 99, 235, 0.05), rgba(147, 51, 234, 0.05));
                 background-size: 80px 80px, 50px 50px, 100% 100%;
                 background-position: 0 0, 25px 25px, 0 0;
+                animation: drift 120s linear infinite;
                 z-index: 0;
             }
             
@@ -411,6 +421,15 @@
             }
             
             /* Dark mode about section */
+            @keyframes drift-dark {
+                from {
+                    background-position: 0 0, 30px 30px, 0 0;
+                }
+                to {
+                    background-position: -100px -100px, -30px -30px, 0 0;
+                }
+            }
+            
             body.dark-mode #about::before {
                 background: 
                     /* Moderate star pattern */
@@ -420,6 +439,7 @@
                     linear-gradient(to bottom, rgba(88, 166, 255, 0.1), rgba(167, 139, 250, 0.1));
                 background-size: 100px 100px, 60px 60px, 100% 100%;
                 background-position: 0 0, 30px 30px, 0 0;
+                animation: drift-dark 150s linear infinite;
             }
             
             body.dark-mode #about::after {
@@ -585,6 +605,15 @@
             
             body.dark-mode a:hover {
                 color: #79c0ff;
+            }
+            
+            /* Keep orange links visible in dark mode */
+            body.dark-mode a[style*="#BD5D38"] {
+                color: #ff7043 !important;
+            }
+            
+            body.dark-mode a[style*="#BD5D38"]:hover {
+                color: #ff8a65 !important;
             }
             
             body.dark-mode .btn-dark {
@@ -826,8 +855,8 @@
         </div>
     
     
-        <marquee direction="left" height="30px" style="font-size: 20px;">
-          <a style="color: #BD5D38;"><em>**Software Engineer (Python/AI) | Machine Learning Engineer | Deep Learning Specialist | GenAI Expert**</em></a>
+        <marquee direction="left" style="font-size: 20px; line-height: 28px; padding: 15px 0 20px 0; margin: 10px 0; display: block; overflow: visible;">
+          <a style="color: #BD5D38; font-weight: bold;"><em>Software Engineer (Python/AI) | Machine Learning Engineer | Deep Learning Specialist | GenAI Expert</em></a>
         </marquee>
     
     
@@ -837,7 +866,7 @@
               <p><b>Seasoned Machine Learning Engineer</b> with over 5 years of comprehensive experience in Machine Learning, Deep Learning, Generative AI, and Large Language Models. Proven track record across diverse environments including international remote positions, research institutes, and leading software companies.</p>
             </li>
             <li>
-              <p><b>Graduated</b> from the <a style="color: #BD5D38; " href="https://green.edu.bd/" target="_blank">Green University of Bangladesh </a> with a major in Computer Science & Engineering in 2020.</p>
+              <p><b>Graduated</b> from the <a style="color: #BD5D38; font-weight: bold;" href="https://green.edu.bd/" target="_blank">Green University of Bangladesh</a> with a major in Computer Science & Engineering in 2020.</p>
             </li>
             <li>
               <p>Had <b>Research Publications</b> in high impact-factor Journal, Conference on Computer Vision domain.</p>
@@ -846,10 +875,10 @@
               <p>Attained <b>Kaggle Expert(X2) Title(Top 0.8%)</b>. Achieved <b>3 Silver Medals & 1 Bronze Medal</b>. Selected as <b>DataScience Advisor</b> for KaggleX BIPOC Program 2024.</p>
             </li>
             <li>
-              <p>Selected as a <b>Mentor & Alpha</b> tester by <a style="color: #BD5D38; " href="https://www.deeplearning.ai/" target="_blank">Deeplearning.ai </a> for Natural Language Processing in Coursera Platform.</p>
+              <p>Selected as a <b>Mentor & Alpha</b> tester by <a style="color: #BD5D38; font-weight: bold;" href="https://www.deeplearning.ai/" target="_blank">Deeplearning.ai</a> for Natural Language Processing in Coursera Platform.</p>
             </li>
             <li>
-              <p>Achieved <b>Regional Champion & Global Nominee</b> Title in <a style="color: #BD5D38; " href="https://2020.spaceappschallenge.org/challenges/connect/data-discovery-earth-science/teams/siliconlily/project" target="_blank">NASA Space Apps Challenge 2020</a>. Team SiliconLily has received the following awards and nominations: <b>Global Nominee</b>.</p>
+              <p>Achieved <b>Regional Champion & Global Nominee</b> Title in <a style="color: #BD5D38; font-weight: bold;" href="https://2020.spaceappschallenge.org/challenges/connect/data-discovery-earth-science/teams/siliconlily/project" target="_blank">NASA Space Apps Challenge 2020</a>. Team SiliconLily has received the following awards and nominations: <b>Global Nominee</b>.</p>
             </li>
             <li>
               <p>Participated in many <b>Competitive Coding Contests</b> (Regional ACM ICPC, NCPC, Inter-University Programming Contests, etc.)</p>
@@ -1465,7 +1494,7 @@
                     <div class="resume-content mr-auto">
                       <h3 class="mb-0">NLP Specialization Mentor & Alpha Tester</h3>
                       
-                      <h4 class="mb-3"><a style="color: #BD5D38; " href="https://www.deeplearning.ai/" target="_blank">Deeplearning.AI, USA</a></h4>
+                      <h4 class="mb-3"><a style="color: #BD5D38; font-weight: bold;" href="https://www.deeplearning.ai/" target="_blank">Deeplearning.AI, USA</a></h4>
 
                       <p> Responsible Mentor & Alpha Tester for Natural Language Processing Specialization in Coursera Platform. <b>Achieved Outstanding Mentor Title.</b>
                         <ul>
