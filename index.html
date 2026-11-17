@@ -67,7 +67,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .ridge{bottom:0;width:100%;height:46%;transform-origin:50% 100%}
 .ridge svg{width:100%;height:100%;display:block}
 .ridge.far{height:40%;bottom:8%;opacity:.92}
-.title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--gutter) 12vh;will-change:transform,opacity}
+.title{position:absolute;left:0;right:0;top:clamp(84px,12vh,130px);display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 var(--gutter);will-change:transform,opacity;z-index:3}
 .title h1{font:300 clamp(30px,5.2vw,64px)/1.1 var(--mono);letter-spacing:.32em;text-transform:uppercase;color:#fff;text-shadow:0 2px 24px rgba(29,22,82,.75),0 0 2px rgba(29,22,82,.4);margin-right:-.32em}
 .title .role{text-shadow:0 1px 14px rgba(29,22,82,.9);margin-top:14px;font:400 clamp(13px,1.5vw,17px) var(--mono);letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-right:-.42em}
 .title .tag-line{filter:drop-shadow(0 2px 14px rgba(29,22,82,.75));margin-top:22px;font:300 italic clamp(20px,2.4vw,28px) var(--mono);letter-spacing:.04em}
@@ -116,6 +116,60 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .p-saturn{background:radial-gradient(circle at 35% 30%,#fefce8 0,#fde047 28%,#ca8a04 64%,#713f12 90%,#422006 100%)}
 .js .bio.pending{opacity:0}
 @media (prefers-reduced-motion:reduce){.js .bio.pending{opacity:1}}
+
+/* solar system hero */
+.system-layer{top:0;bottom:0;z-index:2;pointer-events:none}
+.system{position:absolute;left:50%;top:47%;width:0;height:0}
+.orbits{position:absolute;overflow:visible;left:0;top:0;width:1px;height:1px}
+.orbits ellipse{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1;stroke-dasharray:2 5}
+.sun,.orbiter{position:absolute;left:0;top:0;pointer-events:auto;background:none;border:0;padding:0;cursor:pointer;color:#fff}
+.sun{width:var(--sun,104px);height:var(--sun,104px);margin:calc(var(--sun,104px)/-2) 0 0 calc(var(--sun,104px)/-2);border-radius:50%;padding:3px;background:var(--grad);z-index:5;box-shadow:0 0 0 8px rgba(255,255,255,.05),0 0 60px 10px rgba(168,85,247,.55),0 0 120px 30px rgba(34,211,238,.18);animation:sunpulse 5s ease-in-out infinite;transition:transform .3s}
+.sun:hover{transform:scale(1.06)}
+@keyframes sunpulse{50%{box-shadow:0 0 0 14px rgba(255,255,255,.04),0 0 80px 18px rgba(168,85,247,.6),0 0 140px 40px rgba(34,211,238,.22)}}
+.sun img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 18%}
+.sun .lbl{top:calc(100% + 10px)}
+.orbiter{width:0;height:0;opacity:0;transition:opacity .9s}
+.orbiter.in{opacity:1}
+.ball{position:absolute;left:0;top:0;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2);border-radius:50%;box-shadow:inset -4px -5px 9px rgba(0,0,0,.5),0 0 18px rgba(255,255,255,.25);transition:transform .3s,box-shadow .3s}
+.ball.ringed::after{content:"";position:absolute;left:50%;top:50%;width:220%;height:60%;border:2px solid rgba(253,230,138,.75);border-radius:50%;transform:translate(-50%,-50%) rotate(-18deg);box-shadow:0 0 6px rgba(253,230,138,.4)}
+.lbl{position:absolute;left:50%;top:calc(var(--s,0px)/2 + 8px);transform:translateX(-50%);white-space:nowrap;font:500 12.5px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(20,15,60,.9);transition:color .3s}
+.orbiter:hover .ball,.orbiter:focus-visible .ball,.orbiter.sel .ball{transform:scale(1.5);box-shadow:inset -4px -5px 9px rgba(0,0,0,.5),0 0 26px 6px rgba(255,255,255,.45)}
+.orbiter:hover .lbl,.orbiter.sel .lbl,.sun:hover .lbl{color:#fff}
+.orbiter:hover .lbl::before,.orbiter.sel .lbl::before{content:"[ ";color:var(--accent)}
+.orbiter:hover .lbl::after,.orbiter.sel .lbl::after{content:" ]";color:var(--accent)}
+.sun:focus-visible,.orbiter:focus-visible{outline:none}
+.sys-hint{position:absolute;left:0;right:0;top:calc(47% + var(--ry,170px) + 34px);text-align:center;font:500 12.5px var(--mono);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);z-index:3;pointer-events:none;transition:opacity .4s}
+.hero-tag{position:absolute;left:0;right:0;bottom:96px;text-align:center;font:300 italic clamp(19px,2.2vw,26px) var(--mono);letter-spacing:.04em;z-index:3;filter:drop-shadow(0 2px 12px rgba(20,15,60,.9));padding:0 var(--gutter)}
+.sys-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(12,9,40,.45);opacity:0;transition:opacity .3s}
+.sys-modal.show{opacity:1}
+.sys-modal[hidden]{display:none}
+.sys-card{position:relative;width:min(440px,100%);max-height:calc(100svh - 40px);overflow:auto;border-radius:22px;padding:42px 34px 34px;text-align:center;background:rgba(40,30,110,.55);transform:scale(.85) translateY(20px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.sys-modal.show .sys-card{transform:none}
+.sys-body{display:flex;flex-direction:column;align-items:center}
+.sys-body .orb{display:none}
+.sys-body .pl{top:-24px;right:0}
+.sys-body .ic{width:96px;height:96px;display:grid;place-items:center;margin-bottom:14px;border-radius:50%;background:rgba(255,255,255,.06)}
+.sys-body .ic svg{width:58px;height:58px}
+.sys-body .me{width:180px;border-radius:50%;padding:4px;background:var(--grad);margin-bottom:18px}
+.sys-body .me img{width:100%;height:auto;aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:50% 18%}
+.sys-body h3{font:300 44px/1 var(--mono);letter-spacing:.06em;margin-bottom:6px}
+.sys-body .sub{font:500 14px var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.sys-body p{font-size:16px;color:var(--muted);line-height:1.7}
+.sys-body p b{color:#fff;font-weight:500}
+.sys-body ul{list-style:none;width:100%}
+.sys-body li{padding:8px 0;border-top:1px dashed var(--line)}.sys-body li:first-child{border-top:0}
+.sys-body li a{color:var(--muted);text-decoration:none}.sys-body li a:hover{color:var(--accent)}
+.sys-body .row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.sys-body .pl{position:static;margin-bottom:18px}
+.sys-x{position:absolute;top:12px;right:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.sys-x:hover{border-color:var(--accent);color:var(--accent)}
+@media (max-width:600px){
+  .sun{--sun:76px}
+  .lbl{font-size:10.5px;letter-spacing:.12em}
+  .orbiter .lbl{display:none}
+  .orbiter.sel .lbl{display:block}
+  .hero-tag{bottom:88px}
+}
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px;border-radius:16px;overflow:hidden}
@@ -309,39 +363,33 @@ a.paper-link:hover{border-color:var(--accent)}
 
 <header class="space" id="top">
   <div class="sky"></div>
-  <div class="layer planet" data-px="14" data-py="8" data-sy="-0.25">
-    <svg viewBox="0 0 900 580" aria-hidden="true">
-      <defs>
-        <radialGradient id="pg" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#fffaf2"/><stop offset=".35" stop-color="#f6e2ee"/><stop offset=".68" stop-color="#c4b2ea"/><stop offset="1" stop-color="#6c5bb8"/></radialGradient>
-        <radialGradient id="ps" cx=".78" cy=".78" r=".75"><stop offset=".25" stop-color="#2a1f6e" stop-opacity="0"/><stop offset="1" stop-color="#2a1f6e" stop-opacity=".55"/></radialGradient>
-        <linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".05"/><stop offset=".3" stop-color="#fff" stop-opacity=".75"/><stop offset=".7" stop-color="#ffe9f6" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity=".08"/></linearGradient>
-        <clipPath id="pc"><circle cx="450" cy="290" r="175"/></clipPath>
-        <clipPath id="front"><rect x="0" y="290" width="900" height="300"/></clipPath>
-      </defs>
-      <g transform="rotate(-16 450 290)">
-        <ellipse cx="450" cy="290" rx="400" ry="92" stroke="url(#rg)" stroke-width="30" fill="none" opacity=".55"/>
-        <ellipse cx="450" cy="290" rx="330" ry="74" stroke="url(#rg)" stroke-width="12" fill="none" opacity=".45"/>
-        <circle cx="450" cy="290" r="175" fill="url(#pg)"/>
-        <g clip-path="url(#pc)" opacity=".22" stroke="#8c6fc8" fill="none">
-          <ellipse cx="450" cy="250" rx="240" ry="26" stroke-width="10"/><ellipse cx="450" cy="300" rx="240" ry="22" stroke-width="6"/><ellipse cx="450" cy="345" rx="240" ry="30" stroke-width="12"/>
-        </g>
-        <circle cx="450" cy="290" r="175" fill="url(#ps)"/>
-        <g clip-path="url(#front)">
-          <ellipse cx="450" cy="290" rx="400" ry="92" stroke="url(#rg)" stroke-width="30" fill="none" opacity=".7"/>
-          <ellipse cx="450" cy="290" rx="330" ry="74" stroke="url(#rg)" stroke-width="12" fill="none" opacity=".55"/>
-        </g>
-      </g>
-    </svg>
-  </div>
   <div class="layer ridge far" data-px="26" data-py="6" data-sy="0.12"><svg id="ridgeFar" viewBox="0 0 1600 400" preserveAspectRatio="none" aria-hidden="true"></svg></div>
   <div class="title" id="heroTitle">
     <h1>Md. Asif Iqbal Fahim</h1>
     <p class="role">PhD Researcher · Lead AI Engineer</p>
-    <p class="tag-line"><em class="hl">I build software that evolves itself.</em></p>
   </div>
+  <div class="layer system-layer" data-px="18" data-py="8" data-sy="-0.2">
+    <div class="system" id="system" aria-label="Solar system: choose a planet to learn more">
+      <svg class="orbits" id="orbits" aria-hidden="true"></svg>
+      <button class="sun" data-card="earth" aria-label="Earth: about me"><img src="img/fahim-colour.jpg" alt=""><span class="lbl">Earth · Me</span></button>
+      <button class="orbiter" data-card="mars" data-r=".34" data-period="38" data-a0="200" data-size="16"><span class="ball p-mars"></span><span class="lbl">Mars · Engineer</span></button>
+      <button class="orbiter" data-card="jupiter" data-r=".55" data-period="56" data-a0="330" data-size="30"><span class="ball p-jupiter"></span><span class="lbl">Jupiter · Competitor</span></button>
+      <button class="orbiter" data-card="saturn" data-r=".76" data-period="76" data-a0="75" data-size="24"><span class="ball p-saturn ringed"></span><span class="lbl">Saturn · Connect</span></button>
+      <button class="orbiter" data-card="neptune" data-r=".97" data-period="98" data-a0="150" data-size="20"><span class="ball p-neptune"></span><span class="lbl">Neptune · Researcher</span></button>
+    </div>
+  </div>
+  <p class="sys-hint" id="sysHint">Click a planet to explore</p>
   <div class="layer ridge near" data-px="52" data-py="10" data-sy="0" data-zoom="1"><svg id="ridgeNear" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg></div>
+  <p class="hero-tag"><em class="hl">I build software that evolves itself.</em></p>
   <a class="cue" href="#about"><span>Scroll</span><i></i></a>
 </header>
+
+<div class="sys-modal" id="sysModal" hidden>
+  <div class="sys-card glass" role="dialog" aria-modal="true" aria-label="Planet details">
+    <button class="sys-x" id="sysClose" aria-label="Close">×</button>
+    <div class="sys-body" id="sysBody"></div>
+  </div>
+</div>
 
 <main>
 <section class="block" id="about">
@@ -876,6 +924,51 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(size,150)});
   size();
   if(still){draw(0);apply(0);addEventListener('scroll',()=>apply(0),{passive:true})}else requestAnimationFrame(loop);
+})();
+
+// solar system in the hero: planets orbit slowly; click one to pause and open its card
+(()=>{
+  const sys=document.getElementById('system');if(!sys)return;
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const orbs=[...sys.querySelectorAll('.orbiter')],svg=document.getElementById('orbits'),hero=document.querySelector('.space');
+  const modal=document.getElementById('sysModal'),body=document.getElementById('sysBody'),closeBtn=document.getElementById('sysClose'),hint=document.getElementById('sysHint');
+  let R=500,K=.27,t=0,last=0,paused=false,onscreen=true,lastFocus=null;
+  const NS='http://www.w3.org/2000/svg';
+  const layout=()=>{
+    const w=hero.clientWidth,h=hero.clientHeight,mob=w<600;
+    R=Math.min(w*(mob?.44:.42),620);K=mob?.42:.27;
+    const ry=Math.min(R*K,h*.2);K=ry/R;
+    hero.style.setProperty('--ry',ry+'px');
+    svg.innerHTML='';
+    orbs.forEach(o=>{const e=document.createElementNS(NS,'ellipse');e.setAttribute('cx',0);e.setAttribute('cy',0);e.setAttribute('rx',R*o.dataset.r);e.setAttribute('ry',ry*o.dataset.r);svg.appendChild(e);
+      o.style.setProperty('--s',(+o.dataset.size)*(mob?.8:1)+'px')});
+  };
+  const place=()=>{
+    for(const o of orbs){
+      const a=(+o.dataset.a0)*Math.PI/180+(t/(+o.dataset.period))*Math.PI*2,r=+o.dataset.r;
+      const x=Math.cos(a)*R*r,y=Math.sin(a)*R*K*r,front=Math.sin(a);
+      o.style.transform=`translate3d(${x}px,${y}px,0) scale(${.82+.28*(front+1)/2})`;
+      o.style.zIndex=front>0?8:3;
+    }
+  };
+  const loop=ts=>{const dt=last?Math.min(ts-last,100)/1000:0;last=ts;if(!paused&&onscreen&&!document.hidden){t+=dt;place()}requestAnimationFrame(loop)};
+  new IntersectionObserver(([e])=>onscreen=e.isIntersecting).observe(hero);
+  // planets join one by one
+  orbs.forEach((o,i)=>setTimeout(()=>o.classList.add('in'),still?0:700+i*650));
+  const open=(key,btn)=>{
+    const card=document.querySelector(`.bio[data-planet="${key}"]`);if(!card)return;
+    body.innerHTML=card.innerHTML;
+    paused=true;lastFocus=btn;orbs.forEach(o=>o.classList.toggle('sel',o===btn));
+    modal.hidden=false;requestAnimationFrame(()=>modal.classList.add('show'));hint.style.opacity=0;closeBtn.focus();
+  };
+  const close=()=>{modal.classList.remove('show');orbs.forEach(o=>o.classList.remove('sel'));setTimeout(()=>{modal.hidden=true},300);paused=false;hint.style.opacity='';lastFocus&&lastFocus.focus({preventScroll:true})};
+  sys.addEventListener('click',e=>{const b=e.target.closest('[data-card]');if(b)open(b.dataset.card,b)});
+  closeBtn.addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()});
+  addEventListener('resize',()=>{layout();place()});
+  layout();place();
+  if(!still)requestAnimationFrame(loop);
 })();
 
 // about cards arrive one by one from the solar system
