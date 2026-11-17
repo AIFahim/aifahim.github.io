@@ -132,6 +132,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .orbiter::before{content:"";position:absolute;left:calc(var(--s)/-2 - 16px);top:calc(var(--s)/-2 - 16px);width:calc(var(--s) + 32px);height:calc(var(--s) + 32px);border-radius:50%}
 .orbiter.in{opacity:1}
 .ball{position:absolute;left:0;top:0;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2);border-radius:50%;box-shadow:inset calc(var(--s)*-.18) calc(var(--s)*-.22) calc(var(--s)*.35) rgba(0,0,0,.55),0 0 24px rgba(255,255,255,.28);transition:transform .3s,box-shadow .3s}
+.ball svg{position:absolute;left:50%;top:50%;width:58%;height:58%;transform:translate(-50%,-50%);stroke:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7));z-index:1}
 .ball.ringed::after{content:"";position:absolute;left:50%;top:50%;width:220%;height:60%;border:2px solid rgba(253,230,138,.75);border-radius:50%;transform:translate(-50%,-50%) rotate(-18deg);box-shadow:0 0 6px rgba(253,230,138,.4)}
 .lbl{position:absolute;left:50%;top:calc(var(--s,0px)/2 + 10px);transform:translateX(-50%);white-space:nowrap;font:500 15px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(20,15,60,.9);transition:color .3s}
 .orbiter:hover .ball,.orbiter:focus-visible .ball,.orbiter.sel .ball{transform:scale(1.25);box-shadow:inset calc(var(--s)*-.18) calc(var(--s)*-.22) calc(var(--s)*.35) rgba(0,0,0,.55),0 0 34px 8px rgba(255,255,255,.45)}
@@ -372,11 +373,11 @@ a.paper-link:hover{border-color:var(--accent)}
   <div class="layer system-layer" data-px="18" data-py="8" data-sy="-0.2">
     <div class="system" id="system" aria-label="Solar system: choose a planet to learn more">
       <svg class="orbits" id="orbits" aria-hidden="true"></svg>
-      <button class="sun" data-card="earth" aria-label="Earth: about me"><img src="img/fahim-colour.jpg" alt=""><span class="lbl">Earth · Me</span></button>
-      <button class="orbiter" data-card="mars" data-r=".34" data-period="38" data-a0="200" data-size="32"><span class="ball p-mars"></span><span class="lbl">Mars · Engineer</span></button>
-      <button class="orbiter" data-card="jupiter" data-r=".55" data-period="56" data-a0="330" data-size="60"><span class="ball p-jupiter"></span><span class="lbl">Jupiter · Competitor</span></button>
-      <button class="orbiter" data-card="saturn" data-r=".76" data-period="76" data-a0="75" data-size="48"><span class="ball p-saturn ringed"></span><span class="lbl">Saturn · Connect</span></button>
-      <button class="orbiter" data-card="neptune" data-r=".97" data-period="98" data-a0="150" data-size="40"><span class="ball p-neptune"></span><span class="lbl">Neptune · Researcher</span></button>
+      <button class="sun" data-card="earth" aria-label="About me"><img src="img/fahim-colour.jpg" alt=""><span class="lbl">About me</span></button>
+      <button class="orbiter" data-card="mars" aria-label="Engineer" data-r=".34" data-period="38" data-a0="200" data-size="42"><span class="ball p-mars"></span><span class="lbl">Engineer</span></button>
+      <button class="orbiter" data-card="jupiter" aria-label="Competitor" data-r=".55" data-period="56" data-a0="330" data-size="60"><span class="ball p-jupiter"></span><span class="lbl">Competitor</span></button>
+      <button class="orbiter" data-card="saturn" aria-label="Connect" data-r=".76" data-period="76" data-a0="75" data-size="48"><span class="ball p-saturn ringed"></span><span class="lbl">Connect</span></button>
+      <button class="orbiter" data-card="neptune" aria-label="Researcher" data-r=".97" data-period="98" data-a0="150" data-size="40"><span class="ball p-neptune"></span><span class="lbl">Researcher</span></button>
     </div>
   </div>
   <p class="sys-hint" id="sysHint">Click a planet to explore</p>
@@ -397,29 +398,29 @@ a.paper-link:hover{border-color:var(--accent)}
   <div class="wrap" style="max-width:1280px">
     <div class="about-grid">
       <article class="bio glass profile" data-planet="earth">
-        <div class="orb p-earth" aria-hidden="true"></div><span class="pl"><i class="p-earth"></i>Home</span>
+        <div class="orb p-earth" aria-hidden="true"></div>
         <div class="me"><img src="img/fahim-colour.jpg" alt="Md. Asif Iqbal Fahim" width="260" height="260"></div>
         <h3>Fahim</h3><div class="sub">Dublin · Ireland</div>
         <p>I research <b>agentic systems</b> that generate, test and integrate new functionality into <b>running software</b>, and the safety questions that come with them.</p>
         <div class="row"><a class="btn primary" href="pdf/CVofMd.AsifIqbalFahim.pdf" target="_blank" rel="noopener">Download CV</a><a class="btn" href="mailto:md.fahim@ucdconnect.ie">Email me</a></div>
       </article>
       <article class="bio glass" data-planet="neptune">
-        <div class="orb p-neptune" aria-hidden="true"></div><span class="pl"><i class="p-neptune"></i>Neptune</span>
+        <div class="orb p-neptune" aria-hidden="true"></div>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#22d3ee" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="32" cy="32" rx="26" ry="10"/><ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(-60 32 32)"/><circle cx="32" cy="32" r="4" fill="#22d3ee"/></svg></div><h3>Researcher</h3><div class="sub">UCD · PhD</div>
         <p>Two first-author papers in my first year: <b>ReqEvolve</b> at ASE 2026 (CORE A*) and <b>SelfEvolve</b> at SEAMS 2026 (CORE A). Outstanding Poster Award, 2026.</p>
       </article>
       <article class="bio glass" data-planet="mars">
-        <div class="orb p-mars" aria-hidden="true"></div><span class="pl"><i class="p-mars"></i>Mars</span>
+        <div class="orb p-mars" aria-hidden="true"></div>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#a855f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="32" height="32" rx="6"/><rect x="25" y="25" width="14" height="14" rx="2"/><path d="M24 8v8M32 8v8M40 8v8M24 48v8M32 48v8M40 48v8M8 24h8M8 32h8M8 40h8M48 24h8M48 32h8M48 40h8"/></svg></div><h3>Engineer</h3><div class="sub">Lead AI Engineer</div>
         <p>Six years shipping AI. Now at <b>InfinitiBit</b>, building agentic RAG, LLM evaluation and forecasting systems for <b>Siemens Energy</b> and <b>Grant Thornton</b>.</p>
       </article>
       <article class="bio glass" data-planet="jupiter">
-        <div class="orb p-jupiter" aria-hidden="true"></div><span class="pl"><i class="p-jupiter"></i>Jupiter</span>
+        <div class="orb p-jupiter" aria-hidden="true"></div>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#f472b6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10h24v14a12 12 0 0 1-24 0z"/><path d="M20 14H11v4a9 9 0 0 0 9 9M44 14h9v4a9 9 0 0 1-9 9"/><path d="M32 36v10M22 54h20M26 46h12v8H26z"/></svg></div><h3>Competitor</h3><div class="sub">Kaggle Expert ×2</div>
         <p>Five Kaggle medals, including <b>silver in OpenAI's AI Agent Security</b> challenge. <b>Champion</b> of NASA Space Apps 2020.</p>
       </article>
       <article class="bio glass" data-planet="saturn">
-        <div class="orb p-saturn" aria-hidden="true"></div><span class="pl"><i class="p-saturn"></i>Saturn</span>
+        <div class="orb p-saturn" aria-hidden="true"></div>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#fcd34d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="24"/><path d="M8 32h48M32 8c8 7 8 41 0 48M32 8c-8 7-8 41 0 48"/></svg></div><h3>Connect</h3><div class="sub">Say hello</div>
         <ul>
           <li><a href="mailto:md.fahim@ucdconnect.ie">md.fahim@ucdconnect.ie</a></li>
@@ -971,6 +972,8 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   modal.addEventListener('click',e=>{if(e.target===modal)close()});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()});
   addEventListener('resize',()=>{layout();place()});
+  // put each card's icon on its planet so the shape explains itself
+  orbs.forEach(o=>{const ic=document.querySelector(`.bio[data-planet="${o.dataset.card}"] .ic svg`);if(ic){const c=ic.cloneNode(true);c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','4');c.querySelectorAll('[fill]').forEach(el=>el.setAttribute('fill','#fff'));o.querySelector('.ball').appendChild(c)}});
   layout();place();
   if(!still)requestAnimationFrame(loop);
 })();
