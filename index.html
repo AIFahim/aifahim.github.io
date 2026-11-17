@@ -104,6 +104,19 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .bio .spacer{flex:1;min-height:16px}
 .bio .row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 
+/* planets: cards fly in from the solar system */
+.bio{position:relative;overflow:hidden}
+.orb{position:absolute;inset:0;opacity:0;pointer-events:none;border-radius:inherit;box-shadow:inset -14px -18px 40px rgba(0,0,0,.45)}
+.pl{position:absolute;top:16px;right:18px;display:flex;align-items:center;gap:7px;font:500 12px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.pl i{width:16px;height:16px;border-radius:50%;box-shadow:inset -3px -3px 6px rgba(0,0,0,.45),0 0 10px rgba(255,255,255,.18)}
+.p-earth{background:radial-gradient(circle at 35% 30%,#bbf7d0 0,#22c55e 20%,#2563eb 48%,#1e3a8a 78%,#0b1440 100%)}
+.p-neptune{background:radial-gradient(circle at 35% 30%,#dbeafe 0,#60a5fa 25%,#4f46e5 55%,#312e81 82%,#1e1b4b 100%)}
+.p-mars{background:radial-gradient(circle at 35% 30%,#fed7aa 0,#fb923c 28%,#dc2626 62%,#7f1d1d 88%,#450a0a 100%)}
+.p-jupiter{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.55),transparent 45%),radial-gradient(circle at 50% 50%,transparent 55%,rgba(60,30,10,.55) 100%),repeating-linear-gradient(180deg,#f5d0a9 0 9%,#d6a274 9% 16%,#fbe3c6 16% 24%,#b7794a 24% 30%)}
+.p-saturn{background:radial-gradient(circle at 35% 30%,#fefce8 0,#fde047 28%,#ca8a04 64%,#713f12 90%,#422006 100%)}
+.js .bio.pending{opacity:0}
+@media (prefers-reduced-motion:reduce){.js .bio.pending{opacity:1}}
+
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px;border-radius:16px;overflow:hidden}
 .stat{padding:26px 24px 24px;border-left:1px solid var(--line)}
@@ -334,25 +347,30 @@ a.paper-link:hover{border-color:var(--accent)}
 <section class="block" id="about">
   <div class="wrap" style="max-width:1280px">
     <div class="about-grid">
-      <article class="bio glass profile reveal">
+      <article class="bio glass profile" data-planet="earth">
+        <div class="orb p-earth" aria-hidden="true"></div><span class="pl"><i class="p-earth"></i>Home</span>
         <div class="me"><img src="img/fahim-colour.jpg" alt="Md. Asif Iqbal Fahim" width="260" height="260"></div>
         <h3>Fahim</h3><div class="sub">Dublin · Ireland</div>
         <p>I research <b>agentic systems</b> that generate, test and integrate new functionality into <b>running software</b>, and the safety questions that come with them.</p>
         <div class="row"><a class="btn primary" href="pdf/CVofMd.AsifIqbalFahim.pdf" target="_blank" rel="noopener">Download CV</a><a class="btn" href="mailto:md.fahim@ucdconnect.ie">Email me</a></div>
       </article>
-      <article class="bio glass reveal">
+      <article class="bio glass" data-planet="neptune">
+        <div class="orb p-neptune" aria-hidden="true"></div><span class="pl"><i class="p-neptune"></i>Neptune</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#22d3ee" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="32" cy="32" rx="26" ry="10"/><ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(60 32 32)"/><ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(-60 32 32)"/><circle cx="32" cy="32" r="4" fill="#22d3ee"/></svg></div><h3>Researcher</h3><div class="sub">UCD · PhD</div>
         <p>Two first-author papers in my first year: <b>ReqEvolve</b> at ASE 2026 (CORE A*) and <b>SelfEvolve</b> at SEAMS 2026 (CORE A). Outstanding Poster Award, 2026.</p>
       </article>
-      <article class="bio glass reveal">
+      <article class="bio glass" data-planet="mars">
+        <div class="orb p-mars" aria-hidden="true"></div><span class="pl"><i class="p-mars"></i>Mars</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#a855f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="32" height="32" rx="6"/><rect x="25" y="25" width="14" height="14" rx="2"/><path d="M24 8v8M32 8v8M40 8v8M24 48v8M32 48v8M40 48v8M8 24h8M8 32h8M8 40h8M48 24h8M48 32h8M48 40h8"/></svg></div><h3>Engineer</h3><div class="sub">Lead AI Engineer</div>
         <p>Six years shipping AI. Now at <b>InfinitiBit</b>, building agentic RAG, LLM evaluation and forecasting systems for <b>Siemens Energy</b> and <b>Grant Thornton</b>.</p>
       </article>
-      <article class="bio glass reveal">
+      <article class="bio glass" data-planet="jupiter">
+        <div class="orb p-jupiter" aria-hidden="true"></div><span class="pl"><i class="p-jupiter"></i>Jupiter</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#f472b6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10h24v14a12 12 0 0 1-24 0z"/><path d="M20 14H11v4a9 9 0 0 0 9 9M44 14h9v4a9 9 0 0 1-9 9"/><path d="M32 36v10M22 54h20M26 46h12v8H26z"/></svg></div><h3>Competitor</h3><div class="sub">Kaggle Expert ×2</div>
         <p>Five Kaggle medals, including <b>silver in OpenAI's AI Agent Security</b> challenge. <b>Champion</b> of NASA Space Apps 2020.</p>
       </article>
-      <article class="bio glass reveal">
+      <article class="bio glass" data-planet="saturn">
+        <div class="orb p-saturn" aria-hidden="true"></div><span class="pl"><i class="p-saturn"></i>Saturn</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#fcd34d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="32" r="24"/><path d="M8 32h48M32 8c8 7 8 41 0 48M32 8c-8 7-8 41 0 48"/></svg></div><h3>Connect</h3><div class="sub">Say hello</div>
         <ul>
           <li><a href="mailto:md.fahim@ucdconnect.ie">md.fahim@ucdconnect.ie</a></li>
@@ -858,6 +876,34 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(size,150)});
   size();
   if(still){draw(0);apply(0);addEventListener('scroll',()=>apply(0),{passive:true})}else requestAnimationFrame(loop);
+})();
+
+// about cards arrive one by one from the solar system
+(()=>{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!Element.prototype.animate)return;
+  const cards=[...document.querySelectorAll('.bio[data-planet]')];
+  const from={earth:[-.55,.55],neptune:[.75,-.65],mars:[.85,.25],jupiter:[-.8,-.55],saturn:[.6,.75]};
+  cards.forEach(c=>c.classList.add('pending'));
+  let queue=0,timer;
+  const launch=c=>{
+    const i=queue++;clearTimeout(timer);timer=setTimeout(()=>queue=0,600);
+    const r=c.getBoundingClientRect(),orb=40,sx=orb/r.width,sy=orb/r.height;
+    const [fx,fy]=from[c.dataset.planet],dx=fx*innerWidth,dy=fy*innerHeight;
+    const mx=dx*.42-dy*.28,my=dy*.42+dx*.28; // bend the path into an arc
+    const opt={duration:1500,delay:i*420,easing:'cubic-bezier(.3,.7,.2,1)',fill:'backwards'};
+    c.classList.remove('pending');
+    c.animate([
+      {transform:`translate(${dx}px,${dy}px) scale(${sx},${sy}) rotate(-90deg)`,borderRadius:'50%',opacity:0},
+      {offset:.1,opacity:1},
+      {offset:.32,transform:`translate(${mx}px,${my}px) scale(${sx},${sy}) rotate(-40deg)`,borderRadius:'50%'},
+      {offset:.62,transform:`translate(0,0) scale(${sx},${sy}) rotate(0)`,borderRadius:'50%'},
+      {offset:1,transform:'translate(0,0) scale(1,1) rotate(0)',borderRadius:'20px',opacity:1}
+    ],opt);
+    c.querySelector('.orb').animate([{opacity:1},{offset:.62,opacity:1},{offset:.88,opacity:0},{opacity:0}],opt);
+    [...c.children].filter(el=>!el.classList.contains('orb')).forEach(el=>el.animate([{opacity:0},{offset:.72,opacity:0},{opacity:1}],opt));
+  };
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);launch(e.target)}}),{threshold:.25});
+  cards.forEach(c=>io.observe(c));
 })();
 
 // scroll-spy: brackets follow the section you're reading
