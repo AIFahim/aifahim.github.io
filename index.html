@@ -160,6 +160,9 @@ footer a{color:var(--muted)}
 .paper:hover{transform:translateY(-3px);border-color:var(--accent-2)}
 .paper:nth-child(even){grid-template-columns:1fr 1.15fr}
 .paper:nth-child(even) .paper-fig{order:-1}
+.paper.wide{grid-template-columns:1fr}
+.paper.wide .paper-fig{order:0}
+.paper.wide .paper-fig img{max-height:none}
 .paper h3{font:500 clamp(18px,1.9vw,22px)/1.3 var(--sans);margin:14px 0 8px}
 .paper .authors{color:var(--muted);font-size:14px}
 .paper .authors b{color:var(--text)}
@@ -169,8 +172,8 @@ footer a{color:var(--muted)}
 .paper-link{display:inline-block;margin-top:16px;font:500 14px var(--sans);color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
 a.paper-link:hover{border-color:var(--accent)}
 .paper-link.muted{color:var(--muted)}
-.paper-fig{background:#f7f5ff;border-radius:14px;padding:14px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 50px -24px rgba(168,85,247,.55)}
-.paper-fig img,.paper-fig svg{width:100%;height:100%;object-fit:contain}
+.paper-fig{background:#fff;border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 50px -24px rgba(168,85,247,.55)}
+.paper-fig img{width:100%;height:auto;max-height:440px;object-fit:contain}
 
 /* projects */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
@@ -314,41 +317,17 @@ a.paper-link:hover{border-color:var(--accent)}
           <p class="desc">Lets end users, not just developers, drive software self-evolution. High-level requests are clarified, decomposed into specifications, turned into tests and integrated into the running system. Reaches <b>89.2% Pass@1</b> on 72 evolution cases across 18 projects, beating SpecFix by 18.8%.</p>
           <a class="paper-link" href="https://doi.org/10.1145/3832783.3834416" target="_blank" rel="noopener">Read the paper ↗</a>
         </div>
-        <figure class="paper-fig"><svg viewBox="0 0 480 300" role="img" aria-label="ReqEvolve pipeline: an end-user request is clarified, decomposed into a specification, turned into tests and integrated into the running software">
-<defs><linearGradient id="gR" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset=".55" stop-color="#9333ea"/><stop offset="1" stop-color="#db2777"/></linearGradient><marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker></defs>
-<text x="20" y="22" font-size="11" letter-spacing="1.5" fill="#6b7280" font-family="Inter,system-ui,sans-serif">END-USER REQUEST</text>
-<rect x="20" y="32" width="210" height="52" rx="16" fill="#fff" stroke="url(#gR)" stroke-width="2"/>
-<path d="M60 84 L52 100 L76 84" fill="#fff" stroke="#9333ea" stroke-width="2" stroke-linejoin="round"/>
-<text x="125" y="63" text-anchor="middle" font-size="14" font-style="italic" fill="#2e1065" font-family="Inter,system-ui,sans-serif">“Can it export to PDF?”</text>
-<text x="460" y="58" text-anchor="end" font-size="38" font-weight="700" fill="url(#gR)" font-family="Inter,system-ui,sans-serif">89.2%</text>
-<text x="460" y="80" text-anchor="end" font-size="11.5" fill="#6b7280" font-family="Inter,system-ui,sans-serif">Pass@1 · 72 cases · 18 projects</text>
-<path d="M85 100 V128" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#aR)"/>
-<rect x="20" y="132" width="132" height="48" rx="12" fill="#fff" stroke="url(#gR)" stroke-width="2"/><text x="86.0" y="161.0" text-anchor="middle" font-size="14" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Clarify</text><rect x="174" y="132" width="132" height="48" rx="12" fill="#fff" stroke="url(#gR)" stroke-width="2"/><text x="240.0" y="161.0" text-anchor="middle" font-size="14" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Decompose spec</text><rect x="328" y="132" width="132" height="48" rx="12" fill="#fff" stroke="url(#gR)" stroke-width="2"/><text x="394.0" y="161.0" text-anchor="middle" font-size="14" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Generate tests</text>
-<path d="M152 156 H170" stroke="#7c3aed" stroke-width="2" marker-end="url(#aR)"/><path d="M306 156 H324" stroke="#7c3aed" stroke-width="2" marker-end="url(#aR)"/>
-<path d="M394 180 V222" stroke="#7c3aed" stroke-width="2" marker-end="url(#aR)"/>
-<rect x="20" y="226" width="440" height="54" rx="14" fill="url(#gR)"/>
-<text x="240" y="258" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-family="Inter,system-ui,sans-serif">Runtime integration → the software evolves</text>
-</svg></figure>
+        <figure class="paper-fig"><img src="assets/img/research/reqevolve-arch.jpg" alt="ReqEvolve architecture: automatic requirements engineering, iterative test-driven code generation and a persistent knowledge base" loading="lazy"></figure>
       </article>
-      <article class="paper reveal">
+      <article class="paper wide reveal">
         <div class="paper-body">
           <div class="venue"><span class="chip star">SEAMS 2026 · CORE A</span><span class="mono">Rio · with ICSE</span></div>
           <h3>Software Self-Extension with SelfEvolve: an Agentic Architecture for Runtime Code Generation</h3>
-          <p class="authors"><b>M. A. I. Fahim</b>, A. Ferrari · 21st Intl. Symposium on Software Engineering for Adaptive and Self-Managing Systems</p>
+          <p class="authors"><b>M. A. I. Fahim</b>, O. Adebayo, A. Ferrari · 21st Intl. Symposium on Software Engineering for Adaptive and Self-Managing Systems</p>
           <p class="desc">Goes beyond self-adaptation: an orchestrated pipeline that generates entirely new modules at runtime through automatic test-driven development. <b>92.7% Pass@1</b> (51/55) across 11 integration, compositional and data-processing problems, a 61.8% improvement over AutoGen.</p>
-          <span class="paper-link muted">Proceedings forthcoming</span>
+          <a class="paper-link" href="https://doi.org/10.1145/3788550.3794870" target="_blank" rel="noopener">Read the paper ↗</a>
         </div>
-        <figure class="paper-fig"><svg viewBox="0 0 480 300" role="img" aria-label="SelfEvolve loop: generate code, run tests, integrate at runtime, around a running system">
-<defs><linearGradient id="gS" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset=".55" stop-color="#9333ea"/><stop offset="1" stop-color="#db2777"/></linearGradient><marker id="aS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker></defs>
-<path d="M305 42 A190 115 0 0 1 418 189" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#aS)"/>
-<path d="M335 252 A190 115 0 0 1 145 252" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#aS)"/>
-<path d="M61 189 A190 115 0 0 1 175 42" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#aS)"/>
-<rect x="165.0" y="17" width="150" height="38" rx="19" fill="#fff" stroke="url(#gS)" stroke-width="2"/><text x="240" y="41" text-anchor="middle" font-size="13.5" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Generate code</text><rect x="310.0" y="209" width="150" height="38" rx="19" fill="#fff" stroke="url(#gS)" stroke-width="2"/><text x="385" y="233" text-anchor="middle" font-size="13.5" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Run tests (TDD)</text><rect x="10.0" y="209" width="170" height="38" rx="19" fill="#fff" stroke="url(#gS)" stroke-width="2"/><text x="95" y="233" text-anchor="middle" font-size="13.5" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Integrate at runtime</text>
-<rect x="150" y="108" width="180" height="88" rx="16" fill="url(#gS)"/>
-<text x="240" y="142" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-family="Inter,system-ui,sans-serif">Running system</text>
-<text x="240" y="176" text-anchor="middle" font-size="26" font-weight="700" fill="#fff" font-family="Inter,system-ui,sans-serif">92.7%</text>
-<text x="240" y="292" text-anchor="middle" font-size="11.5" fill="#6b7280" font-family="Inter,system-ui,sans-serif">Pass@1 · 51 / 55 · 11 self-evolution problems</text>
-</svg></figure>
+        <figure class="paper-fig"><img src="assets/img/research/selfevolve-arch.jpg" alt="SelfEvolve runtime code generation pipeline, from user request through test-driven code generation, adjudicators and executor" loading="lazy"></figure>
       </article>
       <article class="paper reveal">
         <div class="paper-body">
