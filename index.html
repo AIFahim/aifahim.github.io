@@ -10,7 +10,7 @@
 <meta property="og:description" content="PhD researcher building software that evolves itself. ASE 2026 · SEAMS 2026 · Lead AI Engineer.">
 <meta property="og:image" content="https://aifahim.github.io/img/fahim-colour.jpg">
 <meta property="og:url" content="https://aifahim.github.io/">
-<meta name="theme-color" content="#0a0720">
+<meta name="theme-color" content="#1d1652">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0720'/%3E%3Crect x='8' y='8' width='6' height='6' fill='%2322d3ee'/%3E%3Crect x='18' y='8' width='6' height='6' fill='%23a855f7'/%3E%3Crect x='13' y='18' width='6' height='6' fill='%23f472b6'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,8 @@
 <style>
 :root{
   color-scheme:dark;
-  --bg:#0a0720; --bg-2:#130e33; --line:#2b2556; --text:#f3f1ff; --muted:#aaa5cf;
-  --accent:#22d3ee; --accent-2:#a855f7; --accent-3:#f472b6; --accent-ink:#0a0720;
+  --bg:#1d1652; --bg-2:#2a2173; --line:#463c99; --text:#ffffff; --muted:#cfcaf2;
+  --accent:#22d3ee; --accent-2:#a855f7; --accent-3:#f472b6; --accent-ink:#140f3d;
   --grad:linear-gradient(100deg,#22d3ee 0%,#a855f7 55%,#f472b6 100%);
   --serif:"Instrument Serif",Georgia,serif; --sans:"Inter",system-ui,-apple-system,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,monospace;
@@ -27,7 +27,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--text);font:400 16px/1.65 var(--sans);overflow-x:hidden}
+body{background:linear-gradient(180deg,#1d1652 0%,#251a66 50%,#1f1a5c 100%);color:var(--text);font:400 16px/1.65 var(--sans);overflow-x:hidden}
 a{color:inherit}
 img{max-width:100%;display:block}
 ::selection{background:var(--accent);color:var(--accent-ink)}
@@ -51,13 +51,13 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:110px 0 64px;overflow:hidden}
 #life{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .hero::before{content:"";position:absolute;inset:-20%;z-index:0;pointer-events:none;filter:blur(40px);
-  background:radial-gradient(40% 35% at 78% 40%,rgba(168,85,247,.45),transparent 70%),
-             radial-gradient(35% 30% at 18% 70%,rgba(34,211,238,.28),transparent 70%),
-             radial-gradient(30% 25% at 60% 95%,rgba(244,114,182,.25),transparent 70%);
+  background:radial-gradient(40% 35% at 78% 40%,rgba(168,85,247,.6),transparent 70%),
+             radial-gradient(35% 30% at 18% 70%,rgba(34,211,238,.4),transparent 70%),
+             radial-gradient(30% 25% at 60% 95%,rgba(244,114,182,.4),transparent 70%);
   animation:drift 18s ease-in-out infinite alternate}
 @keyframes drift{to{transform:translate3d(3%,-4%,0) scale(1.08)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at 40% 50%,transparent 30%,var(--bg) 95%)}
+  background:radial-gradient(ellipse at 40% 50%,transparent 45%,var(--bg) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px}
 .dot{width:8px;height:8px;border-radius:50%;background:#34d399;animation:pulse 2.4s infinite}
@@ -117,6 +117,7 @@ a.pub:hover .arrow{color:var(--accent);transform:translate(4px,-4px)}
 /* timeline */
 .job{display:grid;grid-template-columns:220px 1fr;gap:40px;padding:30px 0;border-top:1px solid var(--line)}
 .job h3{font:500 19px/1.35 var(--sans)}
+.job .note{font:400 12.5px var(--mono);color:var(--accent-3);margin:-4px 0 8px}
 .job .org{color:var(--accent);font-weight:500;font-size:15px;margin:2px 0 10px}
 .job ul{list-style:none;color:var(--muted);font-size:15px}
 .job li{position:relative;padding-left:18px;margin-top:6px}
@@ -261,11 +262,6 @@ footer a{color:var(--muted)}
         <div><h3>DOLG-NeXt: Deep Orthogonal Fusion of Local and Global Features for Biomedical Image Segmentation</h3><p>M. R. Ahmed, <b>M. A. I. Fahim</b>, A. K. M. M. Islam, S. Islam, S. Shatabda</p></div>
         <span class="arrow">↗</span>
       </a>
-      <a class="pub reveal" href="https://www.researchgate.net/publication/384677442_Analysis_of_AI_Models_to_Determine_the_Effect_of_Bevacizumab_Therapy_on_Epithelial_Ovarian_Cancer_from_Histopathology_Images" target="_blank" rel="noopener">
-        <div class="venue"><span class="chip">ICACIS 2024</span><span class="mono">Springer CCIS</span></div>
-        <div><h3>Analysis of AI Models to Determine the Effect of Bevacizumab Therapy on Epithelial Ovarian Cancer from Histopathology Images</h3><p>M. S. Hossain, <b>M. A. I. Fahim</b>, et al.</p></div>
-        <span class="arrow">↗</span>
-      </a>
       <a class="pub reveal" href="https://ieeexplore.ieee.org/document/9564125" target="_blank" rel="noopener">
         <div class="venue"><span class="chip">ICIEV &amp; icIVPR 2021</span><span class="mono">IEEE</span></div>
         <div><h3>Improved Transfer Learning Architecture to Classify Covid-19 Affected Chest X-Rays using Noisy Student Pre-training</h3><p><b>M. A. I. Fahim</b>, F. Naznin, M. A. Moni, M. Z. Islam</p></div>
@@ -296,18 +292,19 @@ footer a{color:var(--muted)}
     </div>
 
     <div class="job reveal">
+      <div class="mono">Dec 2024 → Now</div>
+      <div><h3>Lead AI Engineer · Part-time</h3><div class="org">InfinitiBit GmbH, Germany · remote</div>
+        <p class="note">Full-time from Dec 2024; part-time alongside the PhD since Sep 2025.</p>
+        <ul><li>Leads delivery for Siemens Energy and Grant Thornton, from requirements to production.</li>
+        <li>Multimodal agentic RAG over technical PDFs; GraphRAG with semantic caching that cut API costs by about 60%.</li>
+        <li>Agent workflows for grid optimisation and predictive maintenance; LLM evaluation pipelines (RAGAS, multi-judge). Employee of the Month.</li></ul></div>
+    </div>
+    <div class="job reveal">
       <div class="mono">Sep 2025 → Now</div>
       <div><h3>PhD Researcher &amp; Lab Demonstrator</h3><div class="org">University College Dublin · supervised by Prof. Alessio Ferrari</div>
         <ul><li>Took two projects from idea to CORE A*/A publication in year one: benchmarks, statistical validation, open artefacts.</li>
         <li>Runs vLLM-served open-weight models (Qwen2.5-Coder-32B) on UCD's Sonic HPC; designs LLM-as-judge protocols validated with Cohen's kappa.</li>
         <li>Demonstrator across seven modules, from Multi-Agent Systems to Information Security. ACM SIGSOFT CAPS travel grant.</li></ul></div>
-    </div>
-    <div class="job reveal">
-      <div class="mono">Dec 2024 → Now</div>
-      <div><h3>Lead AI Engineer</h3><div class="org">InfinitiBit GmbH, Germany · remote</div>
-        <ul><li>Leads delivery for Siemens Energy and Grant Thornton, from requirements to production.</li>
-        <li>Multimodal agentic RAG over technical PDFs; GraphRAG with semantic caching that cut API costs by about 60%.</li>
-        <li>Agent workflows for grid optimisation and predictive maintenance; LLM evaluation pipelines (RAGAS, multi-judge). Employee of the Month.</li></ul></div>
     </div>
     <div class="job reveal">
       <div class="mono">Sep 2024 → Now</div>
@@ -418,7 +415,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     g=new Uint8Array(W*H);n=new Uint8Array(W*H);
     for(let i=0;i<g.length;i++)g[i]=Math.random()<.18?1:0;
     color=x.createLinearGradient(0,0,r.width,r.height);
-    color.addColorStop(0,'rgba(34,211,238,.30)');color.addColorStop(.55,'rgba(168,85,247,.32)');color.addColorStop(1,'rgba(244,114,182,.30)');
+    color.addColorStop(0,'rgba(34,211,238,.38)');color.addColorStop(.55,'rgba(168,85,247,.42)');color.addColorStop(1,'rgba(244,114,182,.38)');
     draw();
   };
   const step=()=>{
