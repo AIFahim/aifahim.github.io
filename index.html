@@ -125,10 +125,10 @@ a.pub:hover .arrow{color:var(--accent);transform:translate(4px,-4px)}
 .earlier{padding-top:28px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
 
 /* cards */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .card{background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:30px 28px;transition:transform .25s,border-color .25s}
 .card:hover{transform:translateY(-4px);border-color:var(--accent-2)}
-.card:nth-child(1) h3{color:var(--accent)}.card:nth-child(2) h3{color:var(--accent-2)}.card:nth-child(3) h3{color:var(--accent-3)}
+.card:nth-child(1) h3{color:var(--accent)}.card:nth-child(2) h3{color:var(--accent-2)}.card:nth-child(3) h3{color:var(--accent-3)}.card:nth-child(4) h3{color:#fcd34d}
 .card h3{font:400 28px/1.1 var(--serif);margin:14px 0 16px}
 .card ul{list-style:none;font-size:15px;color:var(--muted)}
 .card li{padding:10px 0;border-top:1px dashed var(--line)}
@@ -154,12 +154,69 @@ footer{border-top:1px solid var(--line);padding:26px 0}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}
 
+
+/* papers */
+.paper{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,3vw,40px);align-items:center;padding:clamp(20px,3vw,32px);background:var(--bg-2);border:1px solid var(--line);border-radius:22px;margin-bottom:20px;transition:transform .25s,border-color .25s}
+.paper:hover{transform:translateY(-3px);border-color:var(--accent-2)}
+.paper:nth-child(even){grid-template-columns:1fr 1.15fr}
+.paper:nth-child(even) .paper-fig{order:-1}
+.paper h3{font:500 clamp(18px,1.9vw,22px)/1.3 var(--sans);margin:14px 0 8px}
+.paper .authors{color:var(--muted);font-size:14px}
+.paper .authors b{color:var(--text)}
+.paper .desc{margin-top:12px;font-size:15.5px;color:var(--muted)}
+.paper .desc b{color:var(--accent)}
+.paper .venue{flex-direction:row;flex-wrap:wrap;align-items:center;gap:10px}
+.paper-link{display:inline-block;margin-top:16px;font:500 14px var(--sans);color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a.paper-link:hover{border-color:var(--accent)}
+.paper-link.muted{color:var(--muted)}
+.paper-fig{background:#f7f5ff;border-radius:14px;padding:14px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 50px -24px rgba(168,85,247,.55)}
+.paper-fig img,.paper-fig svg{width:100%;height:100%;object-fit:contain}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filter{font:500 14px var(--sans);color:var(--muted);background:transparent;border:1px solid var(--line);padding:9px 16px;border-radius:999px;cursor:pointer;transition:all .2s}
+.filter i{font-style:normal;font:500 11.5px var(--mono);opacity:.7;margin-left:4px}
+.filter:hover{color:var(--text);border-color:var(--accent-2)}
+.filter.on{background:var(--grad);color:var(--accent-ink);border-color:transparent}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj{display:flex;flex-direction:column;background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .25s,border-color .25s}
+.proj:hover{transform:translateY(-4px);border-color:var(--accent-2)}
+.proj[hidden]{display:none}
+.proj-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.proj-top .mono{font-size:11px;text-align:right}
+.tag{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.t-key{background:rgba(34,211,238,.16);color:#67e8f9}
+.t-ds{background:rgba(168,85,247,.2);color:#d8b4fe}
+.t-android{background:rgba(52,211,153,.16);color:#6ee7b7}
+.t-web{background:rgba(244,114,182,.18);color:#f9a8d4}
+.t-iot{background:rgba(251,191,36,.16);color:#fcd34d}
+.proj h3{font:600 17px/1.35 var(--sans);margin-bottom:8px}
+.proj p{color:var(--muted);font-size:14.5px;flex:1}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.stack span{font:400 11.5px var(--mono);padding:3px 8px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.proj-link{margin-top:16px;font:500 13.5px var(--sans);color:var(--accent);text-decoration:none;align-self:flex-start}
+.proj-link:hover{text-decoration:underline}
+.more-wrap{text-align:center;margin-top:28px}
+.more-wrap .btn{background:var(--bg-2);cursor:pointer;color:var(--text);font-family:var(--sans)}
+.more-wrap[hidden]{display:none}
+
+/* medals */
+.medals .m{display:inline-block;font:600 10.5px var(--mono);text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:999px;margin-right:8px;vertical-align:1px}
+.m.s{background:linear-gradient(135deg,#e5e7eb,#9ca3af);color:#1f2937}
+.m.b{background:linear-gradient(135deg,#f3b07a,#b45309);color:#fff}
+.medals em{font-style:normal;font:400 12px var(--mono);color:var(--accent);float:right;margin-left:6px}
+
 /* reveal */
 .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .js .reveal.in{opacity:1;transform:none}
 
 /* responsive */
+@media (max-width:1000px){
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media (max-width:900px){
+  .paper,.paper:nth-child(even){grid-template-columns:1fr}
+  .paper:nth-child(even) .paper-fig{order:0}
   .hero .wrap{grid-template-columns:1fr;gap:48px}
   .portrait{justify-self:start;max-width:240px}
   .head,.job{grid-template-columns:1fr;gap:12px}
@@ -180,6 +237,7 @@ footer a{color:var(--muted)}
   .stat{padding:22px 14px 20px}
   .hint{display:none}
   .card{padding:26px 20px}
+  .proj-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -198,6 +256,7 @@ footer a{color:var(--muted)}
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="links">Menu</button>
     <ul class="links" id="links">
       <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#recognition">Recognition</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -231,7 +290,7 @@ footer a{color:var(--muted)}
     <div class="stat reveal"><b>A*</b><span>First-author paper at ASE 2026</span></div>
     <div class="stat reveal"><b>A</b><span>First-author paper at SEAMS 2026</span></div>
     <div class="stat reveal"><b>190<small>/4,186</small></b><span>OpenAI agent-security challenge, silver</span></div>
-    <div class="stat reveal"><b>0.8%</b><span>Top of 182K+ on Kaggle, Competition Expert ×2</span></div>
+    <div class="stat reveal"><b>5</b><span>Kaggle medals: four silver, one bronze. Competition Expert ×2</span></div>
   </div>
 </div>
 
@@ -246,27 +305,71 @@ footer a{color:var(--muted)}
       </div>
     </div>
 
-    <div class="pubs">
-      <a class="pub reveal" href="https://doi.org/10.1145/3832783.3834416" target="_blank" rel="noopener">
-        <div class="venue"><span class="chip star">ASE 2026 · CORE A*</span><span class="mono">Munich</span></div>
-        <div><h3>ReqEvolve: User-Oriented Software Self-Evolution through Automatic Requirement Interpretation</h3><p><b>M. A. I. Fahim</b>, A. Ferrari · 41st IEEE/ACM Intl. Conference on Automated Software Engineering</p></div>
-        <span class="arrow">↗</span>
-      </a>
-      <div class="pub reveal">
-        <div class="venue"><span class="chip star">SEAMS 2026 · CORE A</span><span class="mono">Rio · with ICSE</span></div>
-        <div><h3>Software Self-Extension with SelfEvolve: an Agentic Architecture for Runtime Code Generation</h3><p><b>M. A. I. Fahim</b>, A. Ferrari · 92.7% Pass@1, a 61.8% improvement over AutoGen</p></div>
-        <span class="arrow"></span>
-      </div>
-      <a class="pub reveal" href="https://www.sciencedirect.com/science/article/abs/pii/S092523122300485X" target="_blank" rel="noopener">
-        <div class="venue"><span class="chip">Neurocomputing · 2023</span><span class="mono">Elsevier</span></div>
-        <div><h3>DOLG-NeXt: Deep Orthogonal Fusion of Local and Global Features for Biomedical Image Segmentation</h3><p>M. R. Ahmed, <b>M. A. I. Fahim</b>, A. K. M. M. Islam, S. Islam, S. Shatabda</p></div>
-        <span class="arrow">↗</span>
-      </a>
-      <a class="pub reveal" href="https://ieeexplore.ieee.org/document/9564125" target="_blank" rel="noopener">
-        <div class="venue"><span class="chip">ICIEV &amp; icIVPR 2021</span><span class="mono">IEEE</span></div>
-        <div><h3>Improved Transfer Learning Architecture to Classify Covid-19 Affected Chest X-Rays using Noisy Student Pre-training</h3><p><b>M. A. I. Fahim</b>, F. Naznin, M. A. Moni, M. Z. Islam</p></div>
-        <span class="arrow">↗</span>
-      </a>
+    <div class="papers">
+      <article class="paper reveal">
+        <div class="paper-body">
+          <div class="venue"><span class="chip star">ASE 2026 · CORE A*</span><span class="mono">Munich</span></div>
+          <h3>ReqEvolve: User-Oriented Software Self-Evolution through Automatic Requirement Interpretation</h3>
+          <p class="authors"><b>M. A. I. Fahim</b>, A. Ferrari · 41st IEEE/ACM Intl. Conference on Automated Software Engineering</p>
+          <p class="desc">Lets end users, not just developers, drive software self-evolution. High-level requests are clarified, decomposed into specifications, turned into tests and integrated into the running system. Reaches <b>89.2% Pass@1</b> on 72 evolution cases across 18 projects, beating SpecFix by 18.8%.</p>
+          <a class="paper-link" href="https://doi.org/10.1145/3832783.3834416" target="_blank" rel="noopener">Read the paper ↗</a>
+        </div>
+        <figure class="paper-fig"><svg viewBox="0 0 480 300" role="img" aria-label="ReqEvolve pipeline: an end-user request is clarified, decomposed into a specification, turned into tests and integrated into the running software">
+<defs><linearGradient id="gR" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset=".55" stop-color="#9333ea"/><stop offset="1" stop-color="#db2777"/></linearGradient><marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker></defs>
+<text x="20" y="22" font-size="11" letter-spacing="1.5" fill="#6b7280" font-family="Inter,system-ui,sans-serif">END-USER REQUEST</text>
+<rect x="20" y="32" width="210" height="52" rx="16" fill="#fff" stroke="url(#gR)" stroke-width="2"/>
+<path d="M60 84 L52 100 L76 84" fill="#fff" stroke="#9333ea" stroke-width="2" stroke-linejoin="round"/>
+<text x="125" y="63" text-anchor="middle" font-size="14" font-style="italic" fill="#2e1065" font-family="Inter,system-ui,sans-serif">“Can it export to PDF?”</text>
+<text x="460" y="58" text-anchor="end" font-size="38" font-weight="700" fill="url(#gR)" font-family="Inter,system-ui,sans-serif">89.2%</text>
+<text x="460" y="80" text-anchor="end" font-size="11.5" fill="#6b7280" font-family="Inter,system-ui,sans-serif">Pass@1 · 72 cases · 18 projects</text>
+<path d="M85 100 V128" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#aR)"/>
+<rect x="20" y="132" width="132" height="48" rx="12" fill="#fff" stroke="url(#gR)" stroke-width="2"/><text x="86.0" y="161.0" text-anchor="middle" font-size="14" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Clarify</text><rect x="174" y="132" width="132" height="48" rx="12" fill="#fff" stroke="url(#gR)" stroke-width="2"/><text x="240.0" y="161.0" text-anchor="middle" font-size="14" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Decompose spec</text><rect x="328" y="132" width="132" height="48" rx="12" fill="#fff" stroke="url(#gR)" stroke-width="2"/><text x="394.0" y="161.0" text-anchor="middle" font-size="14" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Generate tests</text>
+<path d="M152 156 H170" stroke="#7c3aed" stroke-width="2" marker-end="url(#aR)"/><path d="M306 156 H324" stroke="#7c3aed" stroke-width="2" marker-end="url(#aR)"/>
+<path d="M394 180 V222" stroke="#7c3aed" stroke-width="2" marker-end="url(#aR)"/>
+<rect x="20" y="226" width="440" height="54" rx="14" fill="url(#gR)"/>
+<text x="240" y="258" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-family="Inter,system-ui,sans-serif">Runtime integration → the software evolves</text>
+</svg></figure>
+      </article>
+      <article class="paper reveal">
+        <div class="paper-body">
+          <div class="venue"><span class="chip star">SEAMS 2026 · CORE A</span><span class="mono">Rio · with ICSE</span></div>
+          <h3>Software Self-Extension with SelfEvolve: an Agentic Architecture for Runtime Code Generation</h3>
+          <p class="authors"><b>M. A. I. Fahim</b>, A. Ferrari · 21st Intl. Symposium on Software Engineering for Adaptive and Self-Managing Systems</p>
+          <p class="desc">Goes beyond self-adaptation: an orchestrated pipeline that generates entirely new modules at runtime through automatic test-driven development. <b>92.7% Pass@1</b> (51/55) across 11 integration, compositional and data-processing problems, a 61.8% improvement over AutoGen.</p>
+          <span class="paper-link muted">Proceedings forthcoming</span>
+        </div>
+        <figure class="paper-fig"><svg viewBox="0 0 480 300" role="img" aria-label="SelfEvolve loop: generate code, run tests, integrate at runtime, around a running system">
+<defs><linearGradient id="gS" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset=".55" stop-color="#9333ea"/><stop offset="1" stop-color="#db2777"/></linearGradient><marker id="aS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker></defs>
+<path d="M305 42 A190 115 0 0 1 418 189" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#aS)"/>
+<path d="M335 252 A190 115 0 0 1 145 252" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#aS)"/>
+<path d="M61 189 A190 115 0 0 1 175 42" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#aS)"/>
+<rect x="165.0" y="17" width="150" height="38" rx="19" fill="#fff" stroke="url(#gS)" stroke-width="2"/><text x="240" y="41" text-anchor="middle" font-size="13.5" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Generate code</text><rect x="310.0" y="209" width="150" height="38" rx="19" fill="#fff" stroke="url(#gS)" stroke-width="2"/><text x="385" y="233" text-anchor="middle" font-size="13.5" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Run tests (TDD)</text><rect x="10.0" y="209" width="170" height="38" rx="19" fill="#fff" stroke="url(#gS)" stroke-width="2"/><text x="95" y="233" text-anchor="middle" font-size="13.5" font-weight="600" fill="#2e1065" font-family="Inter,system-ui,sans-serif">Integrate at runtime</text>
+<rect x="150" y="108" width="180" height="88" rx="16" fill="url(#gS)"/>
+<text x="240" y="142" text-anchor="middle" font-size="15" font-weight="600" fill="#fff" font-family="Inter,system-ui,sans-serif">Running system</text>
+<text x="240" y="176" text-anchor="middle" font-size="26" font-weight="700" fill="#fff" font-family="Inter,system-ui,sans-serif">92.7%</text>
+<text x="240" y="292" text-anchor="middle" font-size="11.5" fill="#6b7280" font-family="Inter,system-ui,sans-serif">Pass@1 · 51 / 55 · 11 self-evolution problems</text>
+</svg></figure>
+      </article>
+      <article class="paper reveal">
+        <div class="paper-body">
+          <div class="venue"><span class="chip">Neurocomputing · 2023</span><span class="mono">Elsevier · IF 6.0</span></div>
+          <h3>DOLG-NeXt: Convolutional Neural Network with Deep Orthogonal Fusion of Local and Global Features for Biomedical Image Segmentation</h3>
+          <p class="authors">M. R. Ahmed, <b>M. A. I. Fahim</b>, A. K. M. M. Islam, S. Islam, S. Shatabda</p>
+          <p class="desc">A ConvNeXt-based encoder–decoder that fuses local and global features with DOLG modules for biomedical image segmentation. Funded by the Institute of Advanced Research, UIU.</p>
+          <a class="paper-link" href="https://www.sciencedirect.com/science/article/abs/pii/S092523122300485X" target="_blank" rel="noopener">Read the paper ↗</a>
+        </div>
+        <figure class="paper-fig"><img src="assets/img/research/dolg-fig.jpg" alt="DOLG-NeXt architecture diagram" loading="lazy"></figure>
+      </article>
+      <article class="paper reveal">
+        <div class="paper-body">
+          <div class="venue"><span class="chip">ICIEV &amp; icIVPR 2021</span><span class="mono">IEEE</span></div>
+          <h3>Improved Transfer Learning Architecture to Classify Covid-19 Affected Chest X-Rays using Noisy Student Pre-training</h3>
+          <p class="authors"><b>M. A. I. Fahim</b>, F. Naznin, M. A. Moni, M. Z. Islam</p>
+          <p class="desc">EfficientNet with semi-supervised Noisy Student training and a Mish-activated classifier, separating COVID-19, pneumonia and normal chest X-rays with <b>98% ROC-AUC</b>, plus saliency maps for interpretability.</p>
+          <a class="paper-link" href="https://ieeexplore.ieee.org/document/9564125" target="_blank" rel="noopener">Read the paper ↗</a>
+        </div>
+        <figure class="paper-fig"><img src="assets/img/research/covid-fig.jpg" alt="Transfer learning architecture diagram for COVID-19 chest X-ray classification" loading="lazy"></figure>
+      </article>
     </div>
 
     <div class="feature reveal">
@@ -284,10 +387,208 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="mono">02 / Projects</div>
+      <div>
+        <h2>Things I've <em class="hl">built.</em></h2>
+        <p class="intro">From production LLM systems to hackathon apps and hardware. Filter by area, or open the full list.</p>
+      </div>
+    </div>
+    <div class="filters reveal" role="group" aria-label="Filter projects">
+      <button class="filter on" data-f="all">All <i>25</i></button>
+      <button class="filter" data-f="key">Industry <i>7</i></button>
+      <button class="filter" data-f="ds">Data Science &amp; ML <i>5</i></button>
+      <button class="filter" data-f="android">Android <i>7</i></button>
+      <button class="filter" data-f="web">Web <i>4</i></button>
+      <button class="filter" data-f="iot">IoT <i>2</i></button>
+    </div>
+    <div class="proj-grid" id="projGrid">
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">InfinitiBit</span></div>
+        <h3>Multimodal RAG with Intelligent Caching</h3>
+        <p>Production RAG over PDFs with text, tables and images on ChromaDB. Redis semantic caching cut OpenAI API costs by 60%; deployed with Terraform on AWS.</p>
+        <div class="stack"><span>ChromaDB</span><span>Redis</span><span>AWS</span><span>Terraform</span></div>
+        
+      </article>
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">InfinitiBit × Siemens</span></div>
+        <h3>AI Energy Grid Optimisation</h3>
+        <p>Agent workflows for grid optimisation and predictive maintenance, with causal-reasoning time-series models for renewable-energy forecasting.</p>
+        <div class="stack"><span>LLM agents</span><span>Time series</span><span>Causal inference</span></div>
+        
+      </article>
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">REVE Systems</span></div>
+        <h3>Real-time Speech Recognition Streaming</h3>
+        <p>WhisperX streaming over WebSocket with voice activity detection and phoneme alignment. Containerised FastAPI service with sub-200 ms latency.</p>
+        <div class="stack"><span>WhisperX</span><span>FastAPI</span><span>Docker</span></div>
+        
+      </article>
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">IdeaScale</span></div>
+        <h3>Recommendation Engine with Vector Search</h3>
+        <p>Context-aware recommender on OpenSearch with HNSW indexing. ONNX-optimised Sentence-BERT gave a 5× latency reduction in production.</p>
+        <div class="stack"><span>OpenSearch</span><span>ONNX</span><span>Sentence-BERT</span></div>
+        
+      </article>
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">IdeaScale</span></div>
+        <h3>Incremental Topic Modelling Pipeline</h3>
+        <p>BERTopic with incremental training via IncrementalPCA and MiniBatchKMeans, served through Celery workers handling 10K+ requests a minute.</p>
+        <div class="stack"><span>BERTopic</span><span>Celery</span><span>Kubernetes</span></div>
+        
+      </article>
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">REVE Systems</span></div>
+        <h3>Distributed Speech Training</h3>
+        <p>Dynamic training for a 900-hour speech dataset with automated GPU scheduling. JAX pipeline with pruning cut training time by 40%.</p>
+        <div class="stack"><span>JAX</span><span>PEFT / LoRA</span><span>GPU</span></div>
+        
+      </article>
+      <article class="proj" data-cat="key">
+        <div class="proj-top"><span class="tag t-key">Industry</span><span class="mono">MLOps</span></div>
+        <h3>CI/CD for ML Model Deployment</h3>
+        <p>GitHub Actions for automated model testing, validation and versioning, with AWS CodePipeline deployments supporting rollback and A/B tests.</p>
+        <div class="stack"><span>GitHub Actions</span><span>AWS CodePipeline</span></div>
+        
+      </article>
+      <article class="proj" data-cat="ds">
+        <div class="proj-top"><span class="tag t-ds">Kaggle</span><span class="mono">Silver · 40 / 744</span></div>
+        <h3>Bengali.AI Speech Recognition</h3>
+        <p>Speech recognition for out-of-distribution Bengali audio with production-ready data pipelines. Silver medal.</p>
+        <div class="stack"><span>ASR</span><span>Whisper</span><span>Kaggle</span></div>
+        <a class="proj-link" href="https://www.kaggle.com/competitions/bengaliai-speech" target="_blank" rel="noopener">Kaggle ↗</a>
+      </article>
+      <article class="proj" data-cat="ds">
+        <div class="proj-top"><span class="tag t-ds">Data Science</span><span class="mono">Python</span></div>
+        <h3>New Connection Chat Bot</h3>
+        <p>A Telegram chatbot built to support people with depression, using Google Dialogflow for conversation and hosted on Heroku.</p>
+        <div class="stack"><span>Dialogflow</span><span>Telegram API</span><span>Heroku</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/New_Connection_Chat_Bot" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="ds">
+        <div class="proj-top"><span class="tag t-ds">Data Science</span><span class="mono">Python</span></div>
+        <h3>Multi-class Image Classification with SVM</h3>
+        <p>Classifies dogs, cats, horses and humans from a Kaggle dataset with a Support Vector Machine.</p>
+        <div class="stack"><span>scikit-learn</span><span>SVM</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Image-Classification-Using-SVM" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="ds">
+        <div class="proj-top"><span class="tag t-ds">Data Science</span><span class="mono">Python</span></div>
+        <h3>Profit Prediction for a Bike-Sharing Company</h3>
+        <p>Linear regression on profit and population data to forecast a company’s future profit.</p>
+        <div class="stack"><span>Linear regression</span><span>Jupyter</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Predict-Profit-Using-Linear-Regression-" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="ds">
+        <div class="proj-top"><span class="tag t-ds">Data Science</span><span class="mono">Python</span></div>
+        <h3>Customer Car-Purchase Group Classification</h3>
+        <p>SVM on gender, age and salary to predict car-purchase groups, with preprocessing, feature scaling and confusion-matrix analysis.</p>
+        <div class="stack"><span>SVM</span><span>Feature scaling</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Customer-Car-Purched-Group-Classification-and-Prediction-" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">TensorFlow Lite</span></div>
+        <h3>Cat &amp; Dog Recognition</h3>
+        <p>Camera app that continuously detects objects with a quantised MobileNet SSD trained on COCO, running on-device.</p>
+        <div class="stack"><span>TFLite</span><span>MobileNet SSD</span><span>Java</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Cat-and-Dog-Recognition" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">OpenCV · OpenGL</span></div>
+        <h3>Camera Beautify</h3>
+        <p>Face-beautify camera with traditional Bengali stickers, timers and camera switching, built with OpenCV and OpenGL.</p>
+        <div class="stack"><span>OpenCV</span><span>OpenGL</span><span>Java</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Camera_Beautify_AI_Face_Recognized_APP" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">NASA Space Apps 2019</span></div>
+        <h3>Space Air Quality Monitoring (App)</h3>
+        <p>Shows surface air quality from IoT sensor data through a REST API and compares it with NASA data. Top-40 team.</p>
+        <div class="stack"><span>REST API</span><span>Java</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Nasa-Space-App-2019-Android-Application" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">Sceneform</span></div>
+        <h3>Hello AR</h3>
+        <p>A playful augmented-reality app that places a 3D fox anywhere in the scene.</p>
+        <div class="stack"><span>ARCore</span><span>Sceneform</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Hello_AR" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">Java</span></div>
+        <h3>My71</h3>
+        <p>An app sharing the history of the Bangladesh Liberation War.</p>
+        <div class="stack"><span>Java</span><span>Android</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/My71_Project_For_Freedom_Fighter" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">Java</span></div>
+        <h3>Corona Informative App</h3>
+        <p>COVID-19 information for Bangladesh in one place.</p>
+        <div class="stack"><span>Java</span><span>Android</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Corona_Informative_App" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="android">
+        <div class="proj-top"><span class="tag t-android">Android</span><span class="mono">Java</span></div>
+        <h3>News Hub</h3>
+        <p>All of Bangladesh’s online newspapers in a single app.</p>
+        <div class="stack"><span>WebView</span><span>Java</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/News-Hub-A-Online-News-App" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="web">
+        <div class="proj-top"><span class="tag t-web">Web</span><span class="mono">NASA Space Apps 2020 · Champion</span></div>
+        <h3>Environment Natural Events</h3>
+        <p>Interactive map visualising nearby natural events. Champion in Bangladesh and Global Nominee.</p>
+        <div class="stack"><span>React</span><span>Leaflet</span><span>Chart.js</span><span>Node.js</span></div>
+        <a class="proj-link" href="https://gitlab.com/AIFahim/environmental-natural-events" target="_blank" rel="noopener">GitLab ↗</a>
+      </article>
+      <article class="proj" data-cat="web">
+        <div class="proj-top"><span class="tag t-web">Web</span><span class="mono">NASA Space Apps 2019</span></div>
+        <h3>Space Air Quality Monitoring (Web)</h3>
+        <p>Web dashboard for surface air-quality readings from the team’s IoT devices, analysed against NASA data.</p>
+        <div class="stack"><span>JavaScript</span><span>MySQL</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Nasa-Space-App-2019-Website" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="web">
+        <div class="proj-top"><span class="tag t-web">Web</span><span class="mono">PHP</span></div>
+        <h3>F &amp; E Shoppy</h3>
+        <p>E-commerce site with separate admin and user panels.</p>
+        <div class="stack"><span>PHP</span><span>MySQL</span><span>Bootstrap</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/E-Com-Website-Using-PHP" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="web">
+        <div class="proj-top"><span class="tag t-web">Web</span><span class="mono">JavaScript</span></div>
+        <h3>Snake Game</h3>
+        <p>A browser snake game built with the Phaser engine.</p>
+        <div class="stack"><span>Phaser</span><span>JavaScript</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Snack-Game-Js" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="iot">
+        <div class="proj-top"><span class="tag t-iot">IoT</span><span class="mono">NASA Space Apps 2019</span></div>
+        <h3>Space Air Quality Monitoring (IoT)</h3>
+        <p>NodeMCU firmware that detects harmful gases and streams readings to the web and Android apps.</p>
+        <div class="stack"><span>NodeMCU</span><span>C/C++</span><span>Sensors</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Nasa-Space-App-2019-IOT-Source-Code" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+      <article class="proj" data-cat="iot">
+        <div class="proj-top"><span class="tag t-iot">IoT</span><span class="mono">Arduino</span></div>
+        <h3>Temperature Indicator for Baby Feeder</h3>
+        <p>Waterproof DS18B20 sensor with RGB LED and buzzer to tell whether milk is too hot or too cold for a baby.</p>
+        <div class="stack"><span>Arduino</span><span>DS18B20</span></div>
+        <a class="proj-link" href="https://github.com/AIFahim/Temperature-Indicator-for-baby-feeder" target="_blank" rel="noopener">GitHub ↗</a>
+      </article>
+    </div>
+    <div class="more-wrap"><button class="btn" id="moreBtn" aria-expanded="false">Show all projects ↓</button></div>
+  </div>
+</section>
+
 <section class="block" id="work">
   <div class="wrap">
     <div class="head reveal">
-      <div class="mono">02 / Work</div>
+      <div class="mono">03 / Work</div>
       <h2>Five years across <em class="hl">industry</em> and the lab.</h2>
     </div>
 
@@ -297,7 +598,7 @@ footer a{color:var(--muted)}
         <p class="note">Full-time from Dec 2024; part-time alongside the PhD since Sep 2025.</p>
         <ul><li>Leads delivery for Siemens Energy and Grant Thornton, from requirements to production.</li>
         <li>Multimodal agentic RAG over technical PDFs; GraphRAG with semantic caching that cut API costs by about 60%.</li>
-        <li>Agent workflows for grid optimisation and predictive maintenance; LLM evaluation pipelines (RAGAS, multi-judge). Employee of the Month.</li></ul></div>
+        <li>Agent workflows for grid optimisation and predictive maintenance; LLM evaluation pipelines (RAGAS, multi-judge). Best Employee Award, July 2025.</li></ul></div>
     </div>
     <div class="job reveal">
       <div class="mono">Sep 2025 → Now</div>
@@ -338,27 +639,38 @@ footer a{color:var(--muted)}
 <section class="block" id="recognition">
   <div class="wrap">
     <div class="head reveal">
-      <div class="mono">03 / Recognition</div>
+      <div class="mono">04 / Recognition</div>
       <h2>Awards, service <em class="hl">&amp;</em> teaching.</h2>
     </div>
     <div class="grid reveal">
-      <div class="card"><span class="mono">Awards</span><h3>Competing</h3>
-        <ul><li><b>Silver</b>, OpenAI AI Agent Security (Kaggle), 2026</li>
-        <li><b>Kaggle Competition Expert ×2</b>, four silver and one bronze medal</li>
-        <li><b>Outstanding Poster Award</b>, UCD CS, 2026</li>
-        <li><b>Champion</b>, NASA Space Apps 2020 (Global Nominee)</li>
-        <li>ACM ICPC Dhaka Regional 2018 &amp; 2019</li></ul></div>
+      <div class="card"><span class="mono">Kaggle · Expert ×2</span><h3>Medals</h3>
+        <ul class="medals">
+        <li><span class="m s">Silver</span><b>AI Agent Security</b> (OpenAI) <em>190 / 4,186</em></li>
+        <li><span class="m s">Silver</span><b>PetFinder Pawpularity</b> <em>58 / 3,537</em></li>
+        <li><span class="m s">Silver</span><b>G-Research Crypto</b> <em>88 / 1,946</em></li>
+        <li><span class="m s">Silver</span><b>Bengali.AI Speech</b> <em>40 / 744</em></li>
+        <li><span class="m b">Bronze</span><b>G2Net Gravitational Waves</b> <em>113 / 1,219</em></li>
+        <li>Peak rank <b>1,457</b>, top 0.8%. Hosted the aiQuest Bangla Sentiment Analysis competition (60 teams).</li></ul></div>
+      <div class="card"><span class="mono">Awards</span><h3>Recognition</h3>
+        <ul><li><b>Outstanding Poster Award</b>, UCD CS, 2026</li>
+        <li><b>Best Employee Award</b>, InfinitiBit, July 2025</li>
+        <li><b>ACM SIGSOFT CAPS</b> travel grant, 2026</li>
+        <li><b>Champion</b>, NASA Space Apps 2020 (Global Nominee) · <b>Global Problem Solver</b>, NASA COVID-19 Challenge</li>
+        <li><b>Champion</b>, CSE Carnival programming contest 2018 &amp; 2019 · ACM ICPC Dhaka Regional 2018 &amp; 2019</li>
+        <li>Dean's Award ×2, Green University</li></ul></div>
       <div class="card"><span class="mono">Service</span><h3>Reviewing</h3>
         <ul><li><b>ACM TOSEM</b>, three reviews, 2026</li>
         <li><b>Empirical Software Engineering</b> (Springer), 2026</li>
-        <li><b>Elsevier</b> journals incl. Neurocomputing, 11 reviews</li>
+        <li><b>Elsevier</b>: Neurocomputing, NLP Journal, Eng. Applications of AI (11 reviews)</li>
         <li><b>NeurIPS 2026</b> MusIML workshop</li>
+        <li><b>IVPR &amp; ICIEV 2023</b> conference reviewer</li>
         <li>Student Volunteer, ASE 2026</li></ul></div>
       <div class="card"><span class="mono">Community</span><h3>Teaching</h3>
-        <ul><li><b>Data Science Advisor</b>, KaggleX Fellowship 2023 &amp; 2024</li>
-        <li><b>Mentor</b>, DeepLearning.AI NLP Specialisation</li>
+        <ul><li><b>Data Science Advisor</b> (2024) and <b>Mentor</b> (2023), KaggleX Fellowship</li>
+        <li><b>Mentor &amp; Alpha Tester</b>, DeepLearning.AI NLP Specialisation</li>
+        <li><b>Instructor</b>, Agentic AI with LLMs, aiQuest Intelligence</li>
+        <li><b>Data Science Stack Exchange</b>: 1 gold, 3 silver, 14 bronze badges</li>
         <li><b>AI Safety Evals</b> reading group, BlueDot Impact</li>
-        <li>Core team, Dhaka AI Traffic Detection Challenge</li>
         <li>Programming instructor for 500+ students, GUB</li></ul></div>
     </div>
     <div class="tags reveal">
@@ -370,7 +682,7 @@ footer a{color:var(--muted)}
 
 <section class="contact" id="contact">
   <div class="wrap reveal">
-    <div class="mono" style="margin-bottom:24px">04 / Contact</div>
+    <div class="mono" style="margin-bottom:24px">05 / Contact</div>
     <h2>Let's build what <em class="hl">comes next.</em></h2>
     <a class="mail" href="mailto:md.fahim@ucdconnect.ie">md.fahim@ucdconnect.ie</a>
     <div class="socials">
@@ -385,7 +697,7 @@ footer a{color:var(--muted)}
 <footer>
   <div class="wrap mono">
     <span>© <span id="yr">2026</span> Md. Asif Iqbal Fahim</span>
-    <a href="classic.html">Classic portfolio &amp; early projects →</a>
+    <a href="https://github.com/AIFahim" target="_blank" rel="noopener">More on GitHub →</a>
   </div>
 </footer>
 
@@ -397,6 +709,24 @@ const closeMenu=()=>{links.classList.remove('open');btn.setAttribute('aria-expan
 btn.addEventListener('click',()=>{const o=links.classList.toggle('open');btn.setAttribute('aria-expanded',String(o));btn.textContent=o?'Close':'Menu'});
 links.addEventListener('click',e=>{if(e.target.tagName==='A')closeMenu()});
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+
+// projects: filter + show more
+(()=>{
+  const items=[...document.querySelectorAll('.proj')],btns=[...document.querySelectorAll('.filter')],more=document.getElementById('moreBtn'),wrap=more.parentElement;
+  const LIMIT=6;let f='all',open=false;
+  const render=()=>{
+    const m=items.filter(el=>f==='all'||el.dataset.cat===f);
+    items.forEach(el=>el.hidden=true);
+    m.forEach((el,i)=>el.hidden=!open&&i>=LIMIT);
+    wrap.hidden=m.length<=LIMIT;
+    more.textContent=open?'Show fewer ↑':`Show all ${m.length} projects ↓`;
+    more.setAttribute('aria-expanded',String(open));
+  };
+  btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.toggle('on',x===b));f=b.dataset.f;open=false;render()}));
+  more.addEventListener('click',()=>{open=!open;render();if(!open)document.getElementById('projects').scrollIntoView({behavior:'smooth'})});
+  render();
+})();
 
 // reveal on scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
