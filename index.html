@@ -59,7 +59,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .menu-btn::before{content:"[ "; color:var(--accent)}.menu-btn::after{content:" ]";color:var(--accent)}
 
 /* space hero */
-.space{position:relative;height:100svh;min-height:560px;overflow:hidden;isolation:isolate}
+.space{position:relative;height:100svh;min-height:560px;overflow:hidden;isolation:isolate;-webkit-mask-image:linear-gradient(#000 88%,transparent);mask-image:linear-gradient(#000 88%,transparent)}
 .sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,16,60,.25) 0%,rgba(52,48,140,.55) 38%,#7d63b8 62%,#d697c2 74%,#f3c0b8 79%,#8a6fb4 84%,#1d1652 100%)}
 .layer{position:absolute;left:0;right:0;will-change:transform}
 .planet{top:0;left:50%;right:auto;width:min(78vw,860px);aspect-ratio:1.55;margin-left:calc(min(78vw,860px) / -2);filter:drop-shadow(0 0 70px rgba(255,214,240,.35))}
