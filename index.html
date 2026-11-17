@@ -129,6 +129,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .sun img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 18%}
 .sun .lbl{top:calc(100% + 10px)}
 .orbiter{width:0;height:0;opacity:0;transition:opacity .9s}
+.orbiter::before{content:"";position:absolute;left:-32px;top:-32px;width:64px;height:64px;border-radius:50%}
 .orbiter.in{opacity:1}
 .ball{position:absolute;left:0;top:0;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2);border-radius:50%;box-shadow:inset -4px -5px 9px rgba(0,0,0,.5),0 0 18px rgba(255,255,255,.25);transition:transform .3s,box-shadow .3s}
 .ball.ringed::after{content:"";position:absolute;left:50%;top:50%;width:220%;height:60%;border:2px solid rgba(253,230,138,.75);border-radius:50%;transform:translate(-50%,-50%) rotate(-18deg);box-shadow:0 0 6px rgba(253,230,138,.4)}
@@ -932,7 +933,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const orbs=[...sys.querySelectorAll('.orbiter')],svg=document.getElementById('orbits'),hero=document.querySelector('.space');
   const modal=document.getElementById('sysModal'),body=document.getElementById('sysBody'),closeBtn=document.getElementById('sysClose'),hint=document.getElementById('sysHint');
-  let R=500,K=.27,t=0,last=0,paused=false,onscreen=true,lastFocus=null;
+  let R=500,K=.27,t=0,last=0,paused=false,hover=false,onscreen=true,lastFocus=null,hideT;
   const NS='http://www.w3.org/2000/svg';
   const layout=()=>{
     const w=hero.clientWidth,h=hero.clientHeight,mob=w<600;
@@ -951,19 +952,21 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
       o.style.zIndex=front>0?8:3;
     }
   };
-  const loop=ts=>{const dt=last?Math.min(ts-last,100)/1000:0;last=ts;if(!paused&&onscreen&&!document.hidden){t+=dt;place()}requestAnimationFrame(loop)};
+  const loop=ts=>{const dt=last?Math.min(ts-last,100)/1000:0;last=ts;if(!paused&&!hover&&onscreen&&!document.hidden){t+=dt;place()}requestAnimationFrame(loop)};
   new IntersectionObserver(([e])=>onscreen=e.isIntersecting).observe(hero);
   // planets join one by one
   orbs.forEach((o,i)=>setTimeout(()=>o.classList.add('in'),still?0:700+i*650));
   const open=(key,btn)=>{
     const card=document.querySelector(`.bio[data-planet="${key}"]`);if(!card)return;
-    body.innerHTML=card.innerHTML;
+    clearTimeout(hideT);body.innerHTML=card.innerHTML;
     paused=true;lastFocus=btn;orbs.forEach(o=>o.classList.toggle('sel',o===btn));
     modal.hidden=false;requestAnimationFrame(()=>modal.classList.add('show'));hint.style.opacity=0;closeBtn.focus();
   };
-  const close=()=>{modal.classList.remove('show');orbs.forEach(o=>o.classList.remove('sel'));setTimeout(()=>{modal.hidden=true},300);paused=false;hint.style.opacity='';lastFocus&&lastFocus.focus({preventScroll:true})};
+  const close=()=>{modal.classList.remove('show');orbs.forEach(o=>o.classList.remove('sel'));hideT=setTimeout(()=>{modal.hidden=true},300);paused=false;hint.style.opacity='';lastFocus&&lastFocus.focus({preventScroll:true})};
   sys.addEventListener('click',e=>{const b=e.target.closest('[data-card]');if(b)open(b.dataset.card,b)});
   closeBtn.addEventListener('click',close);
+  // hovering a planet (or your photo) holds the orbits still so it's easy to click
+  sys.querySelectorAll('[data-card]').forEach(b=>{b.addEventListener('pointerenter',()=>hover=true);b.addEventListener('pointerleave',()=>hover=false)});
   modal.addEventListener('click',e=>{if(e.target===modal)close()});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)close()});
   addEventListener('resize',()=>{layout();place()});
